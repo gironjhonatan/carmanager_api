@@ -17,7 +17,7 @@ Backend desarrollado con Spring Boot para la gestión de usuarios y vehículos.
 
 Actualizar las credenciales de SQL Server en:
 
-application.properties
+application.yml
 
 Ejemplo:
 
