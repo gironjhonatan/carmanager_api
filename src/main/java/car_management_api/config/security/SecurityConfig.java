@@ -35,18 +35,12 @@ public class SecurityConfig {
 
         http
 
-            // ✅ Habilitar CORS
             .cors(Customizer.withDefaults())
-
-            // ✅ API REST
             .csrf(csrf -> csrf.disable())
-
-            // ✅ Stateless JWT
             .sessionManagement(session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )
 
-            // ✅ Endpoints públicos
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
                     "/auth/register",
@@ -59,7 +53,6 @@ public class SecurityConfig {
                 .anyRequest().permitAll()
             )
 
-            // ✅ Desactivar autenticación clásica
             .formLogin(form -> form.disable())
             .httpBasic(httpBasic -> httpBasic.disable());
 

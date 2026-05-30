@@ -13,9 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 import java.util.Collections;
 
-/**
- * Custom UserDetailsService that loads user data from the UserRepository.
- */
+
 @Service
 @AllArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -30,9 +28,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return new UserPrincipal(user);
     }
 
-    /**
-     * UserPrincipal implements UserDetails and wraps the User entity.
-     */
+ 
     public static class UserPrincipal implements UserDetails {
 
         private final User user;
@@ -43,7 +39,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         @Override
         public Collection<? extends GrantedAuthority> getAuthorities() {
-            // For now, we assign a single role "USER". Adjust as needed.
             return Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
         }
 
